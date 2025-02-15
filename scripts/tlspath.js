@@ -15,24 +15,47 @@ if (platform === "win32") {
   extension = "dylib";
   distribution = arch == "arm64" ? arch : "amd64";
 } else if (platform === "linux") {
-  filename = "tls-client-linux";
-  extension = "so";
+  // filename = "tls-client-linux";
+  // extension = "so";
+
+  // let releaseDetails = fs.readFileSync("/etc/os-release", "utf8");
+  // const lines = releaseDetails.split("\n");
+  // const release = {};
+  // lines.forEach((line, _) => {
+  //   // Split the line into an array of words delimited by '='
+  //   const words = line.split("=");
+  //   release[words[0].trim().toLowerCase()] = words[1].trim();
+  // });
+
+  // if (release.id.toLowerCase().includes("ubuntu")) {
+  //   distribution = "ubuntu-amd64";
+  // } else if (release.id.toLowerCase().includes("alpine")) {
+  //   distribution = `alpine-amd64`;
+  // } else {
+  //   distribution = arch == "arm64" ? arch : "armv7";
+  // }
+
+  let filename = "tls-client-linux";
+  let extension = "so";
 
   let releaseDetails = fs.readFileSync("/etc/os-release", "utf8");
   const lines = releaseDetails.split("\n");
   const release = {};
-  lines.forEach((line, _) => {
-    // Split the line into an array of words delimited by '='
-    const words = line.split("=");
-    release[words[0].trim().toLowerCase()] = words[1].trim();
+
+  lines.forEach((line) => {
+    // Only process lines containing '='
+    if (line.includes("=")) {
+      const [key, value] = line.split("=");
+      release[key.trim().toLowerCase()] = (value ?? "").trim().replace(/"/g, "");
+    }
   });
 
-  if (release.id.toLowerCase().includes("ubuntu")) {
+  if (release.id?.toLowerCase().includes("ubuntu")) {
     distribution = "ubuntu-amd64";
-  } else if (release.id.toLowerCase().includes("alpine")) {
-    distribution = `alpine-amd64`;
+  } else if (release.id?.toLowerCase().includes("alpine")) {
+    distribution = "alpine-amd64";
   } else {
-    distribution = arch == "arm64" ? arch : "armv7";
+    distribution = arch === "arm64" ? arch : "armv7";
   }
 } else {
   console.error(`Unsupported platform: ${platform}`);
