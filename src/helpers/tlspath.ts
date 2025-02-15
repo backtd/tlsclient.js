@@ -21,10 +21,18 @@ if (platform === "win32") {
   let releaseDetails = readFileSync("/etc/os-release", "utf8");
   const lines = releaseDetails.split("\n");
   const release: any = {};
-  lines.forEach((line, _) => {
-    // Split the line into an array of words delimited by '='
-    const words = line.split("=");
-    release[words[0].trim().toLowerCase()] = words[1].trim();
+  // lines.forEach((line, _) => {
+  //   // Split the line into an array of words delimited by '='
+  //   const words = line.split("=");
+  //   release[words[0].trim().toLowerCase()] = words[1].trim();
+  // });
+
+  lines.forEach((line) => {
+    // Only process lines containing '='
+    if (line.includes("=")) {
+      const [key, value] = line.split("=");
+      release[key.trim().toLowerCase()] = (value ?? "").trim().replace(/"/g, "");
+    }
   });
 
   if (release.id.toLowerCase().includes("ubuntu")) {
