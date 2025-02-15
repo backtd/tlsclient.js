@@ -9,7 +9,7 @@
     "prepare": "npm run build",
     "postinstall": "node ./scripts/postinstall.js"
   },
-  "name": "@dryft/tlsclient",
+  "name": "@backt/tlsclient",
   "version": "1.0.8",
   "peerDependencies": {
     "typescript": "^5.0.0"
@@ -23,7 +23,7 @@
   "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/heydryft/tlsclient.js.git"
+    "url": "git+https://github.com/backt/tlsclient.js.git"
   },
   "keywords": [
     "tls",
@@ -35,10 +35,10 @@
     "chrome",
     "request"
   ],
-  "author": "heydryft",
+  "author": "backt",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/heydryft/tlsclient.js/issues"
+    "url": "https://github.com/backt/tlsclient.js/issues"
   },
-  "homepage": "https://github.com/heydryft/tlsclient.js#readme"
+  "homepage": "https://github.com/backt/tlsclient.js#readme"
 }
