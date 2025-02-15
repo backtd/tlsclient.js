@@ -35,8 +35,8 @@ if (platform === "win32") {
   //   distribution = arch == "arm64" ? arch : "armv7";
   // }
 
-  let filename = "tls-client-linux";
-  let extension = "so";
+  filename = "tls-client-linux";
+  extension = "so";
 
   let releaseDetails = fs.readFileSync("/etc/os-release", "utf8");
   const lines = releaseDetails.split("\n");
