@@ -1,3 +1,6 @@
+console.log("Running postinstall script...");
+// This script is run after the package is installed.
+
 const fs = require("fs");
 const axios = require("axios");
 const { getTLSDependencyPath } = require("./tlspath.js");

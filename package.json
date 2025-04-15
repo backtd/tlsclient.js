@@ -7,7 +7,7 @@
   "scripts": {
     "build": "tsc",
     "prepare": "npm run build",
-    "postinstall": "node ./scripts/postinstall.js"
+    "postinstall": "node scripts/postinstall.js"
   },
   "name": "@fakhoury/tlsclient",
   "version": "1.1.2",
@@ -25,7 +25,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/backt/tlsclient.js.git"
+    "url": "git+https://github.com/backtd/tlsclient.js.git"
   },
   "keywords": [
     "tls",
@@ -37,10 +37,10 @@
     "chrome",
     "request"
   ],
-  "author": "backt",
+  "author": "backtd",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/backt/tlsclient.js/issues"
+    "url": "https://github.com/backtd/tlsclient.js/issues"
   },
-  "homepage": "https://github.com/backt/tlsclient.js#readme"
+  "homepage": "https://github.com/backtd/tlsclient.js#readme"
 }
