@@ -1,4 +1,7 @@
-console.log("Running postinstall script...");
+console.log("\n=========================");
+console.log(">> RUNNING POSTINSTALL <<");
+console.log("=========================\n");
+
 // This script is run after the package is installed.
 
 const fs = require("fs");
